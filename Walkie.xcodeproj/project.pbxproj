@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F01777397B0BFFD374F0B34 /* Pods_Walkie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25DDB7909094103B3EA53FD4 /* Pods_Walkie.framework */; };
 		2163CAB91FF8D489000AB082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CAB81FF8D489000AB082 /* AppDelegate.swift */; };
 		2163CABE1FF8D489000AB082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2163CABC1FF8D489000AB082 /* Main.storyboard */; };
 		2163CAC11FF8D489000AB082 /* Walkie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2163CABF1FF8D489000AB082 /* Walkie.xcdatamodeld */; };
@@ -27,6 +28,9 @@
 		2163CAD01FF8D783000AB082 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2163CAD21FF8DAB3000AB082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2163CAD41FF8DAB9000AB082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25DDB7909094103B3EA53FD4 /* Pods_Walkie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		594AAF248FC811C1BDBA583C /* Pods-Walkie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walkie/Pods-Walkie.debug.xcconfig"; sourceTree = "<group>"; };
+		CA58341D429378AC57737E03 /* Pods-Walkie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Walkie/Pods-Walkie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F01777397B0BFFD374F0B34 /* Pods_Walkie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +54,8 @@
 				2163CACD1FF8D730000AB082 /* Model */,
 				2163CAB71FF8D489000AB082 /* Walkie */,
 				2163CAB61FF8D489000AB082 /* Products */,
+				3BFF93A6AB039DF08E1636DD /* Pods */,
+				7C82543AA015B57104EF315F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +103,23 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		3BFF93A6AB039DF08E1636DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				594AAF248FC811C1BDBA583C /* Pods-Walkie.debug.xcconfig */,
+				CA58341D429378AC57737E03 /* Pods-Walkie.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7C82543AA015B57104EF315F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25DDB7909094103B3EA53FD4 /* Pods_Walkie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2163CACA1FF8D489000AB082 /* Build configuration list for PBXNativeTarget "Walkie" */;
 			buildPhases = (
+				9B00FCD46A68650F77F5CB6D /* [CP] Check Pods Manifest.lock */,
 				2163CAB11FF8D489000AB082 /* Sources */,
 				2163CAB21FF8D489000AB082 /* Frameworks */,
 				2163CAB31FF8D489000AB082 /* Resources */,
+				E3041B74AC5CB024DFC02152 /* [CP] Embed Pods Frameworks */,
+				57291A38A415E39ADF6C5197 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +190,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57291A38A415E39ADF6C5197 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Walkie/Pods-Walkie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B00FCD46A68650F77F5CB6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Walkie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3041B74AC5CB024DFC02152 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Walkie/Pods-Walkie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Walkie/Pods-Walkie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2163CAB11FF8D489000AB082 /* Sources */ = {
@@ -306,6 +393,7 @@
 		};
 		2163CACB1FF8D489000AB082 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 594AAF248FC811C1BDBA583C /* Pods-Walkie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -321,6 +409,7 @@
 		};
 		2163CACC1FF8D489000AB082 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA58341D429378AC57737E03 /* Pods-Walkie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
