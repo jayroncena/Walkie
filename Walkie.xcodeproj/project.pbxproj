@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		2163CAB91FF8D489000AB082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CAB81FF8D489000AB082 /* AppDelegate.swift */; };
-		2163CABB1FF8D489000AB082 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CABA1FF8D489000AB082 /* ViewController.swift */; };
 		2163CABE1FF8D489000AB082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2163CABC1FF8D489000AB082 /* Main.storyboard */; };
 		2163CAC11FF8D489000AB082 /* Walkie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2163CABF1FF8D489000AB082 /* Walkie.xcdatamodeld */; };
 		2163CAC31FF8D489000AB082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAC21FF8D489000AB082 /* Assets.xcassets */; };
 		2163CAC61FF8D489000AB082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAC41FF8D489000AB082 /* LaunchScreen.storyboard */; };
+		2163CAD11FF8D783000AB082 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CAD01FF8D783000AB082 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2163CAB51FF8D489000AB082 /* Walkie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walkie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2163CAB81FF8D489000AB082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2163CABA1FF8D489000AB082 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2163CABD1FF8D489000AB082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2163CAC01FF8D489000AB082 /* Walkie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Walkie.xcdatamodel; sourceTree = "<group>"; };
 		2163CAC21FF8D489000AB082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2163CAC51FF8D489000AB082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2163CAC71FF8D489000AB082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2163CAD01FF8D783000AB082 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +40,9 @@
 		2163CAAC1FF8D489000AB082 = {
 			isa = PBXGroup;
 			children = (
+				2163CACF1FF8D74F000AB082 /* Controller */,
+				2163CACE1FF8D741000AB082 /* View */,
+				2163CACD1FF8D730000AB082 /* Model */,
 				2163CAB71FF8D489000AB082 /* Walkie */,
 				2163CAB61FF8D489000AB082 /* Products */,
 			);
@@ -57,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				2163CAB81FF8D489000AB082 /* AppDelegate.swift */,
-				2163CABA1FF8D489000AB082 /* ViewController.swift */,
 				2163CABC1FF8D489000AB082 /* Main.storyboard */,
 				2163CAC21FF8D489000AB082 /* Assets.xcassets */,
 				2163CAC41FF8D489000AB082 /* LaunchScreen.storyboard */,
@@ -65,6 +67,28 @@
 				2163CABF1FF8D489000AB082 /* Walkie.xcdatamodeld */,
 			);
 			path = Walkie;
+			sourceTree = "<group>";
+		};
+		2163CACD1FF8D730000AB082 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2163CACE1FF8D741000AB082 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2163CACF1FF8D74F000AB082 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2163CAD01FF8D783000AB082 /* LogInViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2163CABB1FF8D489000AB082 /* ViewController.swift in Sources */,
 				2163CAC11FF8D489000AB082 /* Walkie.xcdatamodeld in Sources */,
 				2163CAB91FF8D489000AB082 /* AppDelegate.swift in Sources */,
+				2163CAD11FF8D783000AB082 /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
