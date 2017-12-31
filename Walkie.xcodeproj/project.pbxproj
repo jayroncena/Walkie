@@ -13,6 +13,7 @@
 		2163CAC31FF8D489000AB082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAC21FF8D489000AB082 /* Assets.xcassets */; };
 		2163CAC61FF8D489000AB082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAC41FF8D489000AB082 /* LaunchScreen.storyboard */; };
 		2163CAD11FF8D783000AB082 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CAD01FF8D783000AB082 /* LogInViewController.swift */; };
+		2163CAD31FF8DAB3000AB082 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAD21FF8DAB3000AB082 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		2163CAC51FF8D489000AB082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2163CAC71FF8D489000AB082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2163CAD01FF8D783000AB082 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		2163CAD21FF8DAB3000AB082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2163CAD41FF8DAB9000AB082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +43,7 @@
 		2163CAAC1FF8D489000AB082 = {
 			isa = PBXGroup;
 			children = (
+				2163CAD21FF8DAB3000AB082 /* GoogleService-Info.plist */,
 				2163CACF1FF8D74F000AB082 /* Controller */,
 				2163CACE1FF8D741000AB082 /* View */,
 				2163CACD1FF8D730000AB082 /* Model */,
@@ -64,6 +68,7 @@
 				2163CAC21FF8D489000AB082 /* Assets.xcassets */,
 				2163CAC41FF8D489000AB082 /* LaunchScreen.storyboard */,
 				2163CAC71FF8D489000AB082 /* Info.plist */,
+				2163CAD41FF8DAB9000AB082 /* GoogleService-Info.plist */,
 				2163CABF1FF8D489000AB082 /* Walkie.xcdatamodeld */,
 			);
 			path = Walkie;
@@ -151,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2163CAC61FF8D489000AB082 /* LaunchScreen.storyboard in Resources */,
+				2163CAD31FF8DAB3000AB082 /* GoogleService-Info.plist in Resources */,
 				2163CAC31FF8D489000AB082 /* Assets.xcassets in Resources */,
 				2163CABE1FF8D489000AB082 /* Main.storyboard in Resources */,
 			);
