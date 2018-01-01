@@ -14,7 +14,8 @@
 		2163CAC31FF8D489000AB082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAC21FF8D489000AB082 /* Assets.xcassets */; };
 		2163CAC61FF8D489000AB082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAC41FF8D489000AB082 /* LaunchScreen.storyboard */; };
 		2163CAD11FF8D783000AB082 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CAD01FF8D783000AB082 /* LogInViewController.swift */; };
-		2163CAD31FF8DAB3000AB082 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAD21FF8DAB3000AB082 /* GoogleService-Info.plist */; };
+		2163CAD81FF8E37E000AB082 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CAD71FF8E37E000AB082 /* AuthProvider.swift */; };
+		2163CADA1FFA19CD000AB082 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAD91FFA19CD000AB082 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,8 @@
 		2163CAC51FF8D489000AB082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2163CAC71FF8D489000AB082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2163CAD01FF8D783000AB082 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		2163CAD21FF8DAB3000AB082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2163CAD41FF8DAB9000AB082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2163CAD71FF8E37E000AB082 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		2163CAD91FFA19CD000AB082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25DDB7909094103B3EA53FD4 /* Pods_Walkie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594AAF248FC811C1BDBA583C /* Pods-Walkie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walkie/Pods-Walkie.debug.xcconfig"; sourceTree = "<group>"; };
 		CA58341D429378AC57737E03 /* Pods-Walkie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Walkie/Pods-Walkie.release.xcconfig"; sourceTree = "<group>"; };
@@ -48,7 +49,8 @@
 		2163CAAC1FF8D489000AB082 = {
 			isa = PBXGroup;
 			children = (
-				2163CAD21FF8DAB3000AB082 /* GoogleService-Info.plist */,
+				2163CAD91FFA19CD000AB082 /* GoogleService-Info.plist */,
+				2163CAD51FF8E321000AB082 /* Plugins */,
 				2163CACF1FF8D74F000AB082 /* Controller */,
 				2163CACE1FF8D741000AB082 /* View */,
 				2163CACD1FF8D730000AB082 /* Model */,
@@ -75,7 +77,6 @@
 				2163CAC21FF8D489000AB082 /* Assets.xcassets */,
 				2163CAC41FF8D489000AB082 /* LaunchScreen.storyboard */,
 				2163CAC71FF8D489000AB082 /* Info.plist */,
-				2163CAD41FF8DAB9000AB082 /* GoogleService-Info.plist */,
 				2163CABF1FF8D489000AB082 /* Walkie.xcdatamodeld */,
 			);
 			path = Walkie;
@@ -101,6 +102,14 @@
 				2163CAD01FF8D783000AB082 /* LogInViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		2163CAD51FF8E321000AB082 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				2163CAD71FF8E37E000AB082 /* AuthProvider.swift */,
+			);
+			path = Plugins;
 			sourceTree = "<group>";
 		};
 		3BFF93A6AB039DF08E1636DD /* Pods */ = {
@@ -183,7 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2163CAC61FF8D489000AB082 /* LaunchScreen.storyboard in Resources */,
-				2163CAD31FF8DAB3000AB082 /* GoogleService-Info.plist in Resources */,
+				2163CADA1FFA19CD000AB082 /* GoogleService-Info.plist in Resources */,
 				2163CAC31FF8D489000AB082 /* Assets.xcassets in Resources */,
 				2163CABE1FF8D489000AB082 /* Main.storyboard in Resources */,
 			);
@@ -258,6 +267,7 @@
 			files = (
 				2163CAC11FF8D489000AB082 /* Walkie.xcdatamodeld in Sources */,
 				2163CAB91FF8D489000AB082 /* AppDelegate.swift in Sources */,
+				2163CAD81FF8E37E000AB082 /* AuthProvider.swift in Sources */,
 				2163CAD11FF8D783000AB082 /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
