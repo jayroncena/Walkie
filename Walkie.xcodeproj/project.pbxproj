@@ -16,6 +16,7 @@
 		2163CAD11FF8D783000AB082 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CAD01FF8D783000AB082 /* LogInViewController.swift */; };
 		2163CAD81FF8E37E000AB082 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CAD71FF8E37E000AB082 /* AuthProvider.swift */; };
 		2163CADA1FFA19CD000AB082 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2163CAD91FFA19CD000AB082 /* GoogleService-Info.plist */; };
+		2163CADC1FFA2028000AB082 /* OwnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163CADB1FFA2028000AB082 /* OwnerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		2163CAD01FF8D783000AB082 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2163CAD71FF8E37E000AB082 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		2163CAD91FFA19CD000AB082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2163CADB1FFA2028000AB082 /* OwnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewController.swift; sourceTree = "<group>"; };
 		25DDB7909094103B3EA53FD4 /* Pods_Walkie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594AAF248FC811C1BDBA583C /* Pods-Walkie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walkie/Pods-Walkie.debug.xcconfig"; sourceTree = "<group>"; };
 		CA58341D429378AC57737E03 /* Pods-Walkie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Walkie/Pods-Walkie.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				2163CAD01FF8D783000AB082 /* LogInViewController.swift */,
+				2163CADB1FFA2028000AB082 /* OwnerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				2163CAB91FF8D489000AB082 /* AppDelegate.swift in Sources */,
 				2163CAD81FF8E37E000AB082 /* AuthProvider.swift in Sources */,
 				2163CAD11FF8D783000AB082 /* LogInViewController.swift in Sources */,
+				2163CADC1FFA2028000AB082 /* OwnerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

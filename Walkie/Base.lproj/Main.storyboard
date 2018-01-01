@@ -147,7 +147,7 @@
         <!--Owner-->
         <scene sceneID="N4l-Xf-iAY">
             <objects>
-                <viewController id="f5U-aE-ttr" sceneMemberID="viewController">
+                <viewController id="f5U-aE-ttr" customClass="OwnerViewController" customModule="Walkie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="syu-Sd-H9o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,21 +157,31 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cao-dn-eB5">
-                                <rect key="frame" x="163" y="582" width="48" height="30"/>
+                                <rect key="frame" x="138" y="582" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
+                                <state key="normal" title="Call Dog Sitter"/>
+                                <connections>
+                                    <action selector="callDogSitter:" destination="f5U-aE-ttr" eventType="touchUpInside" id="c0A-8L-Jzj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yr2-bg-U5b"/>
                     </view>
                     <navigationItem key="navigationItem" title="Owner" id="dpa-jK-mhL">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="6la-31-CeU"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="6la-31-CeU">
+                            <connections>
+                                <action selector="logout:" destination="f5U-aE-ttr" id="X3M-iX-JPV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myMap" destination="696-ot-iJF" id="d4a-W7-dEO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7T-db-hEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029.5999999999999" y="80.50974512743629"/>
+            <point key="canvasLocation" x="1020" y="22"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mTh-kY-M3x">

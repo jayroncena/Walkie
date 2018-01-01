@@ -39,6 +39,37 @@ class AuthProvider{
         })
     }//login func
     
+    func signUp(withEmail: String, password: String, loginHandler: LoginHandler?){
+        
+        Auth.auth().createUser(withEmail: withEmail, password: password) { (user, error) in
+            if error != nil{
+                self.handleErrors(err: error! as NSError, loginHandler: loginHandler)
+            }
+            else{
+                if user?.uid != nil{
+                    //store the user to the database
+                    
+                    //login the user
+                    self.login(withEmail: withEmail, password: password, loginHandler: loginHandler)
+                    
+                }
+            }
+        }
+    }
+    
+    
+    func logOut() -> Bool{
+        if Auth.auth().currentUser != nil{
+            do{
+                try Auth.auth().signOut()
+                return true
+            }catch{
+                return false
+            }
+        }
+        return true
+    }
+    
     private func handleErrors(err: NSError, loginHandler: LoginHandler?){
         
         if let errCode = AuthErrorCode(rawValue: err.code){

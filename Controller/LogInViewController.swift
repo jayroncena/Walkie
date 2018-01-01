@@ -37,17 +37,35 @@ class LogInViewController: UIViewController {
                     self.alertTheUser(title: "Problem with Authentication", message: message!)
                 }
                 else{
-                    print("Login completed")
+                    self.performSegue(withIdentifier: self.owner_segue, sender: nil)
                 }
             })
            
+        }else{
+            alertTheUser(title: "Email and password Are required", message: "Please enter email and password in the text fields")
         }
+        
        
         
     }
     
     
     @IBAction func signUp(_ sender: Any) {
+        
+        if emailTextField.text != "" && passwordTextField.text != ""{
+            
+            AuthProvider.Instance.signUp(withEmail: emailTextField.text!, password: passwordTextField.text!, loginHandler: { (message) in
+                if message != nil{
+                    self.alertTheUser(title: "Problem with creating a new user", message: message!)
+                }
+                else{
+                    self.performSegue(withIdentifier: self.owner_segue, sender: nil)
+                }
+            })
+            
+        }else{
+            alertTheUser(title: "Email and password Are required", message: "Please enter email and password in the text fields")
+        }
     }
     
     private func alertTheUser(title: String, message: String){
