@@ -22,6 +22,12 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     
     @IBAction func logout(_ sender: Any) {
+        if AuthProvider.Instance.logOut(){
+            dismiss(animated: true, completion: nil)
+        }else{
+            //problem with signing out
+            alertTheUser(title: "Could Not Logout", message: "We could not logout at the moment please try again later")
+        }
     }
     
     
@@ -29,6 +35,12 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBAction func callDogSitter(_ sender: Any) {
     }
     
+    private func alertTheUser(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        present(alert,animated: true, completion: nil)
+    }
     
     
     
