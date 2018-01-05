@@ -37,6 +37,10 @@ class LogInViewController: UIViewController {
                     self.alertTheUser(title: "Problem with Authentication", message: message!)
                 }
                 else{
+                    WalkieHandler.Instance.owner = self.emailTextField.text!
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
+                    
                     self.performSegue(withIdentifier: self.owner_segue, sender: nil)
                 }
             })

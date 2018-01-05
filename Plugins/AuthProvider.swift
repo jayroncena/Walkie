@@ -48,6 +48,12 @@ class AuthProvider{
             else{
                 if user?.uid != nil{
                     //store the user to the database
+                    if(category == "WALKIE_OWNER"){
+                        DBProvider.Instance.saveUserOwner(withID: user!.uid, email: withEmail, password: password)
+                    }
+                    else{
+                        DBProvider.Instance.saveUserDogSitter(withID: user!.uid, email: withEmail, password: password)
+                    }
                     
                     //login the user
                     self.login(withEmail: withEmail, password: password, loginHandler: loginHandler)
