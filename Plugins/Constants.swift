@@ -21,7 +21,7 @@ class Constants{
     static let WALKER_REQUEST = "Walkie_Request"
     static let WALKER_ACCEPTED = "Walkie_Accepted"
     
-    //Walie Handler
+    //Walkie Handler
     
     static let NAME = "name"
     static let LATITUDE = "latitude"

@@ -28,9 +28,14 @@ class DBProvider{
         return dbRef.child(Constants.DOGSITTER)
     }
     
-    //request ref
+    var requestRef: DatabaseReference{
+        return dbRef.child(Constants.WALKER_REQUEST)
+    }
     
-    //requestAccepted
+    var requestAcceptedRef: DatabaseReference{
+        return dbRef.child(Constants.WALKER_ACCEPTED)
+    }
+    
     
     func saveUserOwner(withID: String, email: String, password: String){
         

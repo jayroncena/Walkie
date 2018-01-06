@@ -9,7 +9,9 @@
 import UIKit
 import MapKit
 
-class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, WalkieController {
+    
+    
 
     @IBOutlet weak var myMap: MKMapView!
     
@@ -22,6 +24,10 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeLocationManager()
+        if(category == "WALKIE_DOGSITTER"){
+            WalkieHandler.Instance.delegate = self
+            WalkieHandler.Instance.observerMessagesForDogsitter()
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -63,6 +69,10 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         
     }
+    
+    func acceptWalkie(lat: Double, long: Double) {
+        WalkieRequest(title: "Walkie Request", message: "You have request for a Walkie at this location Lat: \(lat), Long: \(long)", requestAlive: true)
+    }
 
     
     @IBAction func logout(_ sender: Any) {
@@ -70,23 +80,43 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             dismiss(animated: true, completion: nil)
         }else{
             //problem with signing out
-            alertTheUser(title: "Could Not Logout", message: "We could not logout at the moment please try again later")
+            WalkieRequest(title: "Could Not Logout", message: "We could not logout at the moment please try again later", requestAlive: false)
+           // alertTheUser(title: "Could Not Logout", message: "We could not logout at the moment please try again later")
         }
     }
     
     
     
     @IBAction func callDogSitter(_ sender: Any) {
-        
+        WalkieHandler.Instance.requestWalkie(latitude: Double(userLocation!.latitude), longtitude: Double(userLocation!.longitude))
     }
     
+    private func WalkieRequest(title: String, message: String, requestAlive: Bool){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        if requestAlive{
+            let accept = UIAlertAction(title: "Accept", style: .default, handler: {
+                (alertAction: UIAlertAction) in
+            })
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            
+            alert.addAction(accept)
+            alert.addAction(cancel)
+        }else{
+             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+        }
+        present(alert, animated: true, completion: nil)
+    }
+    
+    /*
     private func alertTheUser(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(ok)
         present(alert,animated: true, completion: nil)
     }
-    
+    */
     
     
     

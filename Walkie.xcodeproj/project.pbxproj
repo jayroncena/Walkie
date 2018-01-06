@@ -20,7 +20,7 @@
 		21A56AD01FFF46B800F8E748 /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A56ACF1FFF46B800F8E748 /* DBProvider.swift */; };
 		21A56AD21FFF476300F8E748 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A56AD11FFF476300F8E748 /* Constants.swift */; };
 		21A56AD41FFF502100F8E748 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A56AD31FFF502100F8E748 /* CategoryViewController.swift */; };
-		21A56AD61FFF7C9500F8E748 /* WalkeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A56AD51FFF7C9500F8E748 /* WalkeHandler.swift */; };
+		21A56AD61FFF7C9500F8E748 /* WalkieHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A56AD51FFF7C9500F8E748 /* WalkieHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 		21A56ACF1FFF46B800F8E748 /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		21A56AD11FFF476300F8E748 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		21A56AD31FFF502100F8E748 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		21A56AD51FFF7C9500F8E748 /* WalkeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkeHandler.swift; sourceTree = "<group>"; };
+		21A56AD51FFF7C9500F8E748 /* WalkieHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkieHandler.swift; sourceTree = "<group>"; };
 		25DDB7909094103B3EA53FD4 /* Pods_Walkie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594AAF248FC811C1BDBA583C /* Pods-Walkie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walkie/Pods-Walkie.debug.xcconfig"; sourceTree = "<group>"; };
 		CA58341D429378AC57737E03 /* Pods-Walkie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Walkie/Pods-Walkie.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				2163CAD71FF8E37E000AB082 /* AuthProvider.swift */,
 				21A56ACF1FFF46B800F8E748 /* DBProvider.swift */,
 				21A56AD11FFF476300F8E748 /* Constants.swift */,
-				21A56AD51FFF7C9500F8E748 /* WalkeHandler.swift */,
+				21A56AD51FFF7C9500F8E748 /* WalkieHandler.swift */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -288,7 +288,7 @@
 				21A56AD21FFF476300F8E748 /* Constants.swift in Sources */,
 				21A56AD01FFF46B800F8E748 /* DBProvider.swift in Sources */,
 				2163CADC1FFA2028000AB082 /* OwnerViewController.swift in Sources */,
-				21A56AD61FFF7C9500F8E748 /* WalkeHandler.swift in Sources */,
+				21A56AD61FFF7C9500F8E748 /* WalkieHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
