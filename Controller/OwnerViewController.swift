@@ -92,11 +92,17 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     func ownerCancelledWalkie() {
         if !dogSitterCanceledWalkie{
-            //cancel the walkie from the dog sitters perpective
+            WalkieHandler.Instance.cancelWalkieForDogSitter()
             self.acceptedWalkie = false;
             self.callWalkieBtn.isHidden = true
             WalkieRequest(title: "Walkie Canceled", message: "The owner has canceled the walkie", requestAlive: false)
         }
+    }
+    
+    func walkieCanceled() {
+        acceptedWalkie = false
+        callWalkieBtn.isHidden = true
+        // invalidate the timer
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -132,13 +138,26 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     @IBAction func callDogSitter(_ sender: Any) {
-        //WalkieHandler.Instance.requestWalkie(latitude: Double(userLocation!.latitude), longtitude: Double(userLocation!.longitude))
-        if userLocation != nil{
-            if canCallWalkie{
-                WalkieHandler.Instance.requestWalkie(latitude: Double(userLocation!.latitude), longtitude: Double(userLocation!.longitude))
-            }else{
-                ownerCancelRequest = true
-                WalkieHandler.Instance.cancelWalkie()            }
+        
+        
+        if(category == "WALKIE_OWNER")
+        {
+            //WalkieHandler.Instance.requestWalkie(latitude: Double(userLocation!.latitude), longtitude: Double(userLocation!.longitude))
+            if userLocation != nil{
+                if canCallWalkie{
+                    WalkieHandler.Instance.requestWalkie(latitude: Double(userLocation!.latitude), longtitude: Double(userLocation!.longitude))
+                }else{
+                    ownerCancelRequest = true
+                    WalkieHandler.Instance.cancelWalkie()            }
+            }
+        }else{
+            if acceptedWalkie{
+                dogSitterCanceledWalkie = true
+                callWalkieBtn.isHidden = true
+                WalkieHandler.Instance.cancelWalkieForDogSitter()
+                
+                //invalidate timer
+            }
         }
     }
     

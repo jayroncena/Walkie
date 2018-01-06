@@ -18,6 +18,7 @@ protocol WalkieOwnerController: class{
 protocol WalkieController: class{
     func acceptWalkie(lat: Double, long: Double)
     func ownerCancelledWalkie()
+    func walkieCanceled()
 }
 
 class WalkieHandler{
@@ -64,15 +65,33 @@ class WalkieHandler{
             }
         }
         
+        //dog sitter accepted walkie
         DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childAdded) { (DataSnapshot) in
             if let data = DataSnapshot.value as? NSDictionary{
                 if let name = data[Constants.NAME] as? String{
-                    if self.owner == ""{
+                    if self.owner == "" {
                         self.owner = name
                         self.delegateOwner?.dogSitterAcceptedRequest(requestAccepted: true, dogSitterName: self.dogSitter)
                     }
                 }
             }
+        }
+        
+        if(category == "WALKIE_OWNER"){
+            
+            DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childRemoved, with: { (DataSnapshot) in
+                if let data = DataSnapshot.value as? NSDictionary{
+                    if let name = data[Constants.NAME] as? String{
+                        if name == self.dogSitter{
+                            self.dogSitter = ""
+                            self.delegateOwner?.dogSitterAcceptedRequest(requestAccepted: false, dogSitterName: name)
+                        }
+                    }
+                }
+            })
+            
+            
+            
         }
         
     }
@@ -119,6 +138,29 @@ class WalkieHandler{
             })
             })
         
+        //dog sitter accepst walkie
+        if(category == "WALKIE_DOGSITTER")
+        {
+            DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childAdded) { (DataSnapshot) in
+                if let data = DataSnapshot.value as? NSDictionary{
+                    if let name = data[Constants.NAME] as? String{
+                        if name == self.dogSitter{
+                            self.dogSitter_id = DataSnapshot.key
+                        }
+                    }
+                }
+            }
+            //dog sitter canceled walkie
+            DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childRemoved, with: { (DataSnapshot) in
+                if let data = DataSnapshot.value as? NSDictionary{
+                    if let name = data[Constants.NAME] as? String{
+                        if name == self.dogSitter{
+                            self.delegate?.walkieCanceled()
+                        }
+                    }
+                }
+            })
+        }
         
     }//observerMessagesForDogsitter
     
@@ -130,5 +172,19 @@ class WalkieHandler{
         
         DBProvider.Instance.requestAcceptedRef.childByAutoId().setValue(data)
     }
+    
+    //for dogsitter
+    func cancelWalkieForDogSitter(){
+        DBProvider.Instance.requestAcceptedRef.child(dogSitter_id).removeValue()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }//class
