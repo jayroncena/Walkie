@@ -12,10 +12,12 @@ import FirebaseDatabase
 //for owner
 protocol WalkieOwnerController: class{
     func canCallWalkie(delegateCalled: Bool)
+    func dogSitterAcceptedRequest(requestAccepted: Bool, dogSitterName: String)
 }
 
 protocol WalkieController: class{
     func acceptWalkie(lat: Double, long: Double)
+    func ownerCancelledWalkie()
 }
 
 class WalkieHandler{
@@ -62,7 +64,16 @@ class WalkieHandler{
             }
         }
         
-        
+        DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childAdded) { (DataSnapshot) in
+            if let data = DataSnapshot.value as? NSDictionary{
+                if let name = data[Constants.NAME] as? String{
+                    if self.owner == ""{
+                        self.owner = name
+                        self.delegateOwner?.dogSitterAcceptedRequest(requestAccepted: true, dogSitterName: self.dogSitter)
+                    }
+                }
+            }
+        }
         
     }
     
@@ -78,6 +89,7 @@ class WalkieHandler{
         DBProvider.Instance.requestRef.child(owner_id).removeValue()
     }
     
+    //for dog sitter
     func observerMessagesForDogsitter(){
         //owner requested a Walkie
         DBProvider.Instance.requestRef.observe(DataEventType.childAdded, with: { (DataSnapshot) in
@@ -88,10 +100,35 @@ class WalkieHandler{
                         self.delegate?.acceptWalkie(lat: latitude, long: longitude)
                     }
                 }
+                if let name = data[Constants.NAME] as? String{
+                    self.owner = name
+                }
             }
+            
+            //owner cancelled walkie
+            DBProvider.Instance.requestRef.observe(DataEventType.childRemoved, with: { (DataSnapshot) in
+                if let data = DataSnapshot.value as? NSDictionary{
+                    if let name = data[Constants.NAME] as? String{
+                        if name == self.owner{
+                            self.owner = ""
+                            self.delegate?.ownerCancelledWalkie()
+                            
+                        }
+                    }
+                }
+            })
             })
         
         
     }//observerMessagesForDogsitter
+    
+    //for dogSitter
+    
+    func walkieAccepted(lat: Double, long: Double){
+        
+        let data: Dictionary<String, Any> = [Constants.NAME: dogSitter, Constants.LATITUDE: lat, Constants.LONGITUDE: long]
+        
+        DBProvider.Instance.requestAcceptedRef.childByAutoId().setValue(data)
+    }
     
 }//class
