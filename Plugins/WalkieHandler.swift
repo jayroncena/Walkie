@@ -9,6 +9,11 @@
 import Foundation
 import FirebaseDatabase
 
+//for owner
+protocol WalkieOwnerController: class{
+    func canCallWalkie(delegateCalled: Bool)
+}
+
 protocol WalkieController: class{
     func acceptWalkie(lat: Double, long: Double)
 }
@@ -19,14 +24,46 @@ class WalkieHandler{
     
     private static let _instance = WalkieHandler()
     weak var delegate: WalkieController?
+    weak var delegateOwner : WalkieOwnerController?
     
     var owner = ""
-    var dogSitter = ""
     var owner_id = ""
+    var dogSitter = ""
     var dogSitter_id = ""
     
     static var Instance: WalkieHandler{
         return _instance
+    }
+    
+    //for owner
+    func observeMessagesForOwner(){
+        //owner requested walkie
+        DBProvider.Instance.requestRef.observe(DataEventType.childAdded) { (DataSnapshot) in
+            if let data = DataSnapshot.value as? NSDictionary{
+                if let name = data[Constants.NAME] as? String{
+                    if name == self.owner{
+                        self.owner_id = DataSnapshot.key
+                        self.delegateOwner?.canCallWalkie(delegateCalled: true)
+                    }
+                }
+                
+            }
+        }
+        
+        //owner canceled walkie
+        DBProvider.Instance.requestRef.observe(DataEventType.childRemoved) { (DataSnapshot) in
+            if let data = DataSnapshot.value as? NSDictionary{
+                if let name = data[Constants.NAME] as? String{
+                    if name == self.owner{
+                        self.delegateOwner?.canCallWalkie(delegateCalled: false)
+                    }
+                }
+                
+            }
+        }
+        
+        
+        
     }
     
     func requestWalkie(latitude: Double, longtitude: Double){
@@ -34,6 +71,12 @@ class WalkieHandler{
         
         DBProvider.Instance.requestRef.childByAutoId().setValue(data)
     }//request Walkie
+    
+    
+    //for owner
+    func cancelWalkie(){
+        DBProvider.Instance.requestRef.child(owner_id).removeValue()
+    }
     
     func observerMessagesForDogsitter(){
         //owner requested a Walkie

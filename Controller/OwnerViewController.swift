@@ -9,24 +9,36 @@
 import UIKit
 import MapKit
 
-class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, WalkieController {
+class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, WalkieController, WalkieOwnerController {
     
     
 
     @IBOutlet weak var myMap: MKMapView!
+    @IBOutlet weak var callWalkieBtn: UIButton!
     
     private var locationManager = CLLocationManager();
     private var userLocation: CLLocationCoordinate2D?
  //   private var dogSitterLocation: CLLocationCoordinate2D?
  //   private var ownerLocation: CLLocationCoordinate2D?
     
+    //For the owner
+    private var canCallWalkie = true
+    private var ownerCancelRequest = false
+    
+    //For the dogSitter
+    private var acceptedWalkie = false
+    private var ownerCanceledWalkie = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeLocationManager()
+        WalkieHandler.Instance.observeMessagesForOwner()
         if(category == "WALKIE_DOGSITTER"){
             WalkieHandler.Instance.delegate = self
             WalkieHandler.Instance.observerMessagesForDogsitter()
+        }
+        if(category == "WALKIE_OWNER"){
+            WalkieHandler.Instance.delegateOwner = self
         }
 
         // Do any additional setup after loading the view.
@@ -71,7 +83,9 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     func acceptWalkie(lat: Double, long: Double) {
-        WalkieRequest(title: "Walkie Request", message: "You have request for a Walkie at this location Lat: \(lat), Long: \(long)", requestAlive: true)
+        if !acceptedWalkie{
+            WalkieRequest(title: "Walkie Request", message: "You have request for a Walkie at this location Lat: \(lat), Long: \(long)", requestAlive: true)
+        }
     }
 
     
@@ -85,10 +99,26 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }
     }
     
-    
+    //for owner
+    func canCallWalkie(delegateCalled: Bool) {
+        if delegateCalled{
+            callWalkieBtn.setTitle("Cancel Walkie", for: UIControlState.normal)
+            canCallWalkie = false
+        }else{
+            callWalkieBtn.setTitle("Call Dog Sitter", for: UIControlState.normal)
+            canCallWalkie = true
+        }
+    }
     
     @IBAction func callDogSitter(_ sender: Any) {
-        WalkieHandler.Instance.requestWalkie(latitude: Double(userLocation!.latitude), longtitude: Double(userLocation!.longitude))
+        //WalkieHandler.Instance.requestWalkie(latitude: Double(userLocation!.latitude), longtitude: Double(userLocation!.longitude))
+        if userLocation != nil{
+            if canCallWalkie{
+                WalkieHandler.Instance.requestWalkie(latitude: Double(userLocation!.latitude), longtitude: Double(userLocation!.longitude))
+            }else{
+                ownerCancelRequest = true
+                WalkieHandler.Instance.cancelWalkie()            }
+        }
     }
     
     private func WalkieRequest(title: String, message: String, requestAlive: Bool){
@@ -108,6 +138,8 @@ class OwnerViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }
         present(alert, animated: true, completion: nil)
     }
+    
+    
     
     /*
     private func alertTheUser(title: String, message: String){

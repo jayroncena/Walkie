@@ -211,6 +211,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="callWalkieBtn" destination="Cao-dn-eB5" id="miC-Mz-DZq"/>
                         <outlet property="myMap" destination="696-ot-iJF" id="d4a-W7-dEO"/>
                     </connections>
                 </viewController>
